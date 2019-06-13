@@ -20,8 +20,8 @@
         <ListBox x:Name="lstbPerson" Grid.ColumnSpan="3"></ListBox>
 
         <Button Content="Добавить" Grid.Row="1" Height="50" Margin="5" Click="ButtonAdd_Click"></Button>
-        <Button Content="Редактировать" Grid.Row="1" Grid.Column="1" Height="50" Margin="5"></Button>
-        <Button Content="Удалить" Grid.Row="1" Grid.Column="2" Height="50" Margin="5"></Button>
+        <Button Content="Редактировать" Grid.Row="1" Grid.Column="1" Height="50" Margin="5" Click="ButtonEdit_Click"></Button>
+        <Button Content="Удалить" Grid.Row="1" Grid.Column="2" Height="50" Margin="5" Click="ButtonDelete_Click"></Button>
 
 
     </Grid>

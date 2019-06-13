@@ -20,20 +20,50 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
+
         public MainWindow()
         {
             InitializeComponent();
+
 
         }
 
         private void ButtonAdd_Click(object sender, RoutedEventArgs e)
         {
-            ChildWindow child = new ChildWindow(new Employee());
+            Employee employee = new Employee();
+            ChildWindow child = new ChildWindow(employee);
 
-            if (child.ShowDialog() ==true)
+            if (child.ShowDialog() == true)
             {
+                lstbPerson.Items.Add(employee);
+            }
+        }
+
+
+        private void ButtonEdit_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstbPerson.SelectedIndex != -1)
+            {
+                int index = lstbPerson.SelectedIndex;
+                Employee employee = lstbPerson.SelectedItem as Employee;
+                ChildWindow child = new ChildWindow(employee);
+                if (child.ShowDialog() == true)
+                {
+                    lstbPerson.Items.Insert(index, employee);
+                    lstbPerson.Items.RemoveAt(index + 1);
+                    //lstbPerson.Items.Add(employee);
+                }
 
             }
+        }
+
+        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                lstbPerson.Items.RemoveAt(lstbPerson.SelectedIndex);
+            }
+            catch { }
         }
     }
 }
